@@ -110,6 +110,8 @@ const modalText = document.getElementById("modalText");
 const closeModalBtn = document.getElementById("closeModalBtn");
 const closeModalFooterBtn = document.getElementById("closeModalFooterBtn");
 
+
+
 // =========================
 // FUNÇÃO PRINCIPAL DO MODAL
 // =========================
@@ -201,9 +203,9 @@ searchInput.addEventListener("input", function(){
 });
 
 
-////==============================
-//// Carrossel de slides
-///===============================
+//===================
+//CARROSEL DE SLIDES
+//===================
  
  
 const carouselImage = document.getElementById("carouselImage");
@@ -263,9 +265,9 @@ prevBtn.addEventListener("click", function(){
 });
 
 
-////======================
-////FECHA COM A TECLA ESC
-///=======================
+//======================
+//FECHA COM A TECLA ESC
+//=======================
 
 document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
@@ -277,3 +279,20 @@ document.addEventListener("keydown", function (event) {
 });
 
 renderSlide();
+
+//=========
+//ACORDEON
+//=========
+
+const faqItems = document.querySelectorAll(".faq-item");
+faqItems.forEach(function(item) {
+    const questionBtn = item.querySelector(".faq-question");
+    questionBtn.addEventListener("click", function() {
+        faqItems.forEach(i => {
+            if (i !== item) {
+                i.classList.remove("active");
+            }
+        });
+        item.classList.toggle("active");
+    });
+});
